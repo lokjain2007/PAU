@@ -1,0 +1,376 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<title>mPAU LUDHIANA</title>
+<!--        	<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+	<link rel="stylesheet" href="css/pau.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.css" />
+	<style>
+.ui-page.ui-body-a {
+	background: url(images/background.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.breakword {
+	white-space: pre; /* CSS 2.0 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3.0 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	word-wrap: break-word; /* IE 5+ */
+}
+
+.display {
+	display: none;
+	text-decoration: none;
+	text-align: justify;
+}
+
+.display1 {
+	display: none;
+	text-decoration: none;
+	text-align: justify;
+}
+
+.leftclass {
+	text-align: Left;
+}
+</style>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script>
+	$(document).bind("mobileinit", function() {
+		$.support.cors = true;
+		$.mobile.allowCrossDomainPages = true;
+		$.mobile.loadingMessage = false;
+		$.mobile.phonegapNavigationEnabled = true
+		$.mobile.loader.prototype.options.text = "Loading Page....";
+		$.mobile.loader.prototype.options.textVisible = false;
+		$.mobile.loader.prototype.options.theme = "f";
+		$.mobile.loader.prototype.options.html = "";
+	});
+</script>
+<script>
+	document.addEventListener("deviceready", onDeviceReady, false);
+	var cnt = 0;
+	function onDeviceReady() {
+		var osversion = device.platform;
+		var devversion = device.version;
+	}
+
+	$(document).ready(function() {
+		$.mobile.loading("show", {
+			text : "PAU is Loading.....",
+			theme : "a",
+			textonly : false,
+			textvisible : true,
+			html : "<span class='ui-bar ui-shadow ui-overlay ui-corner-all'><img src='css/images/ajax-loader.gif'>this Loading......</span>"
+		});
+//		var myWebHost1 = "http://web.pau.edu/";
+//		var myWebHost = "http://localhost/mobpau/";
+//		var myWebHost = "http://192.168.64.235/mobpau/";
+		var myWebHost = "http://192.168.1.2/mobpau/";
+		function myInit() {
+			$("a").on("click" , function(e) {
+				e.preventDefault();
+				$.mobile.loading("show", {
+					text : " PAU is Loading.....",
+					theme : "a",
+					textonly : false,
+					textvisible : true,
+					html : "<span class='ui-bar ui-shadow ui-overlay ui-corner-all'><img src='css/images/ajax-loader.gif'><h1>PAU is Loading......</h1></span>"
+				});
+//				$.mobile.loading("hide").delay(900);
+				var myID = $(this).attr("id");
+				var mID = myID.split("-");
+				var mIDLength = mID.length;
+				switch (mIDLength) {
+					case 1:
+						var res = myID.substr(0, 1);
+//						alert (res);
+						if (res == 'b' || res == 'e') {
+							myurl = myWebHost+ 'nb.php?tID='+ res+ '&myID='+ myID.substr(1,myID.length);
+							myDiv = '#news1';
+							myPG = '#news';
+
+						} else {
+							myurl = myWebHost+ 'pg1.php?myID='+ mID[0];
+							myDiv = '#myPage1';
+							myPG = '#page1';						
+						}
+						break;
+					case 2:
+						if (mID[0] == 3) {
+							myurl = myWebHost+ 'pg32.php?myID='+ mID[0] + '&myCID1='+ mID[1];
+							myDiv = '#myPage2';
+							myPG = '#page2';
+							break;
+						} else {
+							myurl = myWebHost+ 'pg2.php?myID='+ mID[0] + '&myCID1='+ mID[1];
+							myDiv = '#myPage2';
+							myPG = '#page2';
+							break;
+						}
+					case 3:
+						if (mID[0] == 3) {
+							myurl = myWebHost+ 'pg33.php?myID='+ mID[0] + '&myCID1='+ mID[1] + '&myCID2='+ mID[2];
+							myDiv = '#myPage3';
+							myPG = '#page3';
+							break;
+						} else {
+							myurl = myWebHost+ 'pg3.php?myID='+ mID[0] + '&myCID1='+ mID[1] + '&myCID2='+ mID[2];
+							myDiv = '#myPage3';
+							myPG = '#page3';
+							break;
+						}
+					case 4:
+						if (mID[0] == 3) {
+							myurl = myWebHost+ 'pg34.php?myID='+ mID[0] + '&myCID1='+ mID[1] + '&myCID2='+ mID[2] + '&myCID3='+ mID[3];
+							myDiv = '#myPage4';
+							myPG = '#page4';
+							break;
+						} else {
+							myurl = myWebHost+ 'pg4.php?myID='+ mID[0] + '&myCID1='+ mID[1] + '&myCID2='+ mID[2] + '&myCID3='+ mID[2];
+							myDiv = '#myPage4';
+							myPG = '#page4';
+							break;
+						}
+					case 5:
+						if (mID[0] == 3) {
+							myurl = myWebHost+ 'pg35.php?myID='+ mID[0] + '&myCID1='+ mID[1] + '&myCID2='+ mID[2] + '&myCID3='+ mID[3] + '&myCID4='+ mID[4];
+							myDiv = '#myPage5';
+							myPG = '#page5';
+							break;
+						} else {
+							myurl = myWebHost+ 'pg5.php?myID='+ mID[0] + '&myCID1='+ mID[1] + '&myCID2='+ mID[2] + '&myCID3='+ mID[2] + '&myCID4='+ mID[4];
+							myDiv = '#myPage5';
+							myPG = '#page5';
+							break;
+						}
+				}
+				$('div[id="mainDiv"]').html("");
+				$('div[id="mainDiv"]').trigger('create');
+				$('div[id="mainHeader"]').html("");
+				$('div[id="mainHeader"]').trigger('create');
+				loadMyPage(myurl, myDiv, '');
+				mPage(myPG);
+				e.stopImmediatePropagation();
+				return false;
+			});
+		}
+
+		function loadMyPage(url, elementid, lclstrname) {
+			$.mobile.loading("show", {
+				text : "Loading.....",
+				theme : "a",
+				textonly : false,
+				textvisible : true,
+				html : "<span ><img src='css/images/ajax-loader.gif'>My PAU is Loading......</span>"
+			});
+			var myfooter = '<h1>© Punjab Agricyutural University</div><br> 2015. All rights reserved.</h1>';
+			$(elementid).html("");
+			$(elementid).trigger('create');
+			$.get(url,function(data, status) {
+				$(elementid).html(data);
+				$(elementid).trigger('create');
+				$(elementid).on('load',function() {
+					$.mobile.loading('hide');
+				});
+				myHeight = $('' + elementid + ' img').attr('height');
+				$('' + elementid + ' img').each(function() {
+					var screenImage = $(this).attr('src');
+					if (screenImage.indexOf("http://") == -1) {
+						$(this).attr('src',myWebHost+ screenImage);
+					}
+					var theImage = new Image;
+					theImage.src = screenImage;
+					var imageWidth = theImage.width;
+					var imageHeight = theImage.height;
+					if (imageWidth > screen.width) {
+						$('this').attr('width',screen.width);
+					} else {
+					}
+				});
+				myInit();
+			});
+			$.mobile.loading("hide");
+		}
+		if (cnt == 0) {
+			loadMyPage(myWebHost + 'mypage.php', '#startPage','');
+			cnt = cnt + 1;
+		}
+
+		function mPage(eleid) {
+			$.mobile.changePage($(eleid), {
+				allowSamePageTransition : true,
+				transition : 'none',
+				showLoadMsg : true,
+				reloadPage : true
+			});
+			return
+		}
+		var activeDiv = 1;
+		showDiv(activeDiv);
+		var timer = setInterval(changeDiv, 2000);
+		function changeDiv() {
+			activeDiv++;
+			if (activeDiv >= 4) {
+				activeDiv = 1;
+			}
+			showDiv(activeDiv);
+		}
+		function showDiv(num) {
+			$('div.display').hide();
+			$('#div' + num).fadeIn();
+			$('div.display1').hide();
+			$('#diva' + num).fadeIn();
+		}
+//	$.mobile.loading('hide');
+
+	});
+</script>
+</head>
+<body background="images/background.jpg" bgproperties="fixed">
+
+	<div data-role="page" id="home"
+		style="background-image: url('images/background.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;"
+		data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="startPage"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+	<div data-role="page" id="myPage" data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="startPage1"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+	<div data-role="page" id="page1"
+		style="background-image: url('images/background.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;"
+		data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="myPage1"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+	<div data-role="page" id="page2" data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="myPage2"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+	<div data-role="page" id="page3" data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="myPage3"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+	<div data-role="page" id="page4" data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="myPage4"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+	<div data-role="page" id="page5" data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="myPage5"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+
+	<div data-role="page" id="news" data-theme="a">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<a id="nav-panel"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-left ui-btn-icon-notext">Menu</a>
+			<h1>PAU</h1>
+			<a href="#home"
+				class="ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-home ui-btn-icon-right ui-btn-icon-notext">Home</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div id="news1"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>&copy; Punjab Agricultural University</h1>
+		</div>
+	</div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+</body>
+</html>
